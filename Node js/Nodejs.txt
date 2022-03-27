@@ -1,0 +1,89 @@
+====================== Node JS ======================
+
+===> Globals (global object) - no window
+// _dirname - path to current directory
+// _filename - file name
+// require - function to use modules (commonJS)
+// module - info about current module(file)
+// process - info about where the program us being executed
+
+
+===> module - every file is a module
+            - Encapsulated code (only share min)
+
+===> Built in modules
+    - OS
+    - PATH 
+    - FS 
+    - HTTP
+
+
+===> Event loop in node js
+
+Features of Event Loop:
+1: Event loop is an endless loop, which waits for tasks, executes them and then sleeps until it receives more tasks.
+2: The event loop executes tasks from the event queue only when the call stack is empty i.e. there is no ongoing task.
+3: The event loop allows us to use callbacks and promises.
+4: The event loop executes the tasks starting from the oldest first.
+
+- Timers: Callbacks scheduled by setTimeout() or setInterval() are executed in this phase.
+- Pending Callbacks: I/O callbacks deferred to the next loop iteration are executed here.
+- Idle, Prepare: Used internally only.
+- Poll: Retrieves new I/O events.
+- Check: It invokes setIntermediate() callbacks.
+- Close Callbacks: It handles some close callbacks. Eg: socket.on(‘close’, …)
+
+
+===> STREAMS - streams are data handling method and are used to read or write input in output sequentially.
+- Writable
+- Readable
+- Duplex
+- Transform
+
+
+===> HTTP methods
+- GET : read data
+- POST : insert data
+- PUT : update data
+- DELETE : delete data
+
+
+===> Express 
+Important methods in express object:
+- app.get
+- app.post
+- app.put 
+- app.delete
+- app.all 
+- app.use 
+- app.listen 
+
+
+===> API(Aplication Programming Interface) VS SSR(Server Side Rendering)
+--API
+    1: API - json
+    2: SEND DATA 
+    3: RES.JSON()
+
+-- SSR 
+    1: TEMPLATE
+    2: SEND TEMPLATE
+    3: RES.RENDER()
+
+
+===> Route parameters - In express, route parameters are essentially variables derived from named section of the URL. 
+                        Express captures the value in the namd section and stores it in the req.params property.
+
+// app.get('/user/userID', (req, res)=> {
+    req.params
+    req.json(req.params)
+})                        
+
+
+===> Middleware functions - These are the functions that have access to the request object(req), the response object (res) &
+                            & the next Middleware function in the application's request - response cycle.
+- Middleware function can perform following task: 
+1: Execute any task
+2: Make changes to the request and response object
+3: End the request- response cycle.
+4: Call the next Middleware function in the stack
