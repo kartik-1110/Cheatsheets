@@ -1,0 +1,126 @@
+===> components 
+- components are independent and reusable bits of code. They serve the same purpose as Javascript functions, but work in isolation 7 return HTML.
+- There are 2 types of components :
+    1: Stateless functional component 
+        - Javascript functions - returns HTML
+        - Absence of 'this' keyword
+        - Solution without using state 
+        - Responsible for UI 
+        
+        // function Welcome (props){
+            return <h1>Hello, {props.name}</h1>
+        }
+
+    2:  Stateful class components
+        - ES6 class extending component
+        - Must contain render method returning HTML
+        - Mainain their own private data
+        - Complex UI logic
+
+        // class Welcome extending React.component{
+            render(){
+                return <h1>Hello, {this.props.name}</h1>
+            }
+        }
+
+
+===> Props destructuring
+// const Books = ({img, title, author}) =>{
+    return (
+        <article>
+            <img src={img} />
+            <h1>{title}</h1>
+            <h1>{author}</h1>
+        </article>
+    )
+}
+
+
+===> .map() - calls every element in an array 
+            - once for each element in order
+
+
+===> Events 
+// const clickHandler = () =>{
+    alert("Hello world")
+}
+<button onCLick={clickHandler}>reference button</button>            
+
+
+===> Hooks
+
+===> useState - A hook is a special functino that lets you  'hook into' react features. For eg: useState is a hook that lets you add react state to function component.
+useState is a function and it returns an array.
+
+// const useStateBasics = ()=>{
+    const [text, setText] = useState('Random text')
+    const handleClick = () =>{
+        setText("Hello WOrld")
+    }
+}          
+
+
+===> useEffect - when the component is fixed or is on screen you can prevent re-render by setting event listener or adding empty dependency array.
+
+// useEffect(()=>{
+
+},[])
+
+
+===> Event listener
+- The addEventlistener() method attaches an event handler to the specified element.
+- This method attaches an event handler to an element without overwriting an existing event handlers.
+-  you can add many event listeners to one element.
+
+// element.addEventlistener(event, function, useCapture)
+
+
+===> useRef
+- useRef returns a mutable ref objects whose .current property is initialized to the passed argument (inital value ). The returned object will persist for the full lifetime of the component.
+
+// const refContainer = useRef(initalState)
+
+- Essentially, useRef is like a 'box' that can hold a mutable value in its .current property.
+
+
+===> useReducer
+- An alternative to useState, accepts a reducer of type (state, action)=> newState; & returns the current state period with a dispatch method.
+- useReducer is usually preferable to useState when you have complex state logic that involves multiple sub-values or when next state depends on previous one.
+
+// const [state, dispatch] = useReducer(reducer, initialArg, init)
+
+
+===> Context API
+- Context provides a way to press data throught the component tree without having to pass props down manually at entry level.
+- 2 components - Provider, Consumer
+- It is when prop is 2-3 level deep i.e. data need to be accessed 2-3 levels deep.
+
+// const PersonContext = React.createContext()
+const .... = () =>{
+    return {
+        <PersonContext.provider value = {...can pass any value or object}>
+            .... wrap the component whose data is to be passed
+        </PersonContext.provider>
+        const .... =()=>{
+            const .... = useContext(PersonContext)              can call passed data or object..
+        }
+    }
+}
+
+
+===> Inline if-else with conditional operator
+// condition ? true : false
+
+
+===> Fetching data from API
+- fetch is a method to send network request and get information from the server.
+1: First the promise, returned by fetch resolves with an object with built in Response class as soon as the server responds with headers.
+2: Second to get response body, we need to use additional method call.
+    - Response provides multiple promise based methods to access the body in various formats
+    - .response.text()    --- read the response and return text
+    - response.json()     --- parse the response as json
+
+// let promise = fetch(url, [options])          ---basic syntax
+    - url - the URL to access
+    - options - optional parameters : method, headers etc.
+        
