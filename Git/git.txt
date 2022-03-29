@@ -1,0 +1,34 @@
+===> For cloning anexisting repsitory:  
+    git clone ...url...
+
+===> For adding changes
+    git add.
+
+===> For seeing changes
+    git status
+
+===> For commiting/ saving changes
+    git commit -m "message"
+
+===> For seeing all branches
+    git branch
+
+===> for switching branches
+    git checkout ...branch-name...
+
+===> For creating new branch
+    git checkout -b branch-name
+
+===> for merging 2 branches
+    git merge branch-name
+
+===> for uploading code in git 
+    git push remote-name branch-name
+
+===> For reverting the changes
+    git stash
+
+===> for checking out any changes done on git 
+    git fetch
+
+                                        
